@@ -30,37 +30,25 @@ values."
      spacemacs-ivy
      auto-completion
      better-defaults
-     github
      (version-control :variables version-control-diff-tool 'git-gutter+
                       version-control-global-margin t)
-     semantic                           ; too slow
+     semantic                           ; Too slow
      markdown
-     (vinegar :variables vinegar-reuse-dired-buffer t)
      org
-     prodigy
-     search-engine
      syntax-checking
-     yaml
-     ;; (ruby :variables ruby-version-manager 'rvm)
      python
      lua
      html
-     command-log
      javascript
      ;; restclient
      emacs-lisp
-     (clojure :variables clojure-enable-fancify-symbols t)
      ;; dash
      ;; emoji
      ;; ycmd
      ;; fasd
      ;; deft
      ;; elfeed
-     ranger
      ;; racket
-     gtags
-     (spacemacs-layouts :variables layouts-enable-autosave t
-                        layouts-autosave-delay 300)
      ;; eyebrowse
      (colors :variables
              colors-enable-nyan-cat-progress-bar t)
@@ -72,9 +60,6 @@ values."
           magit-refs-show-commit-count 'all
           ;; This is really creepy magit
           magit-revision-show-gravatars nil)
-     (ibuffer :variables ibuffer-group-buffers-by 'projects)
-     (c-c++ :variables
-            c-c++-default-mode-for-headers 'c++-mode)
      (shell :variables
             shell-default-position 'full
             shell-default-shell 'ansi-term
@@ -87,13 +72,13 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(magit-gh-pulls
+   dotspacemacs-excluded-packages '(
+                                    magit-gh-pulls
                                     magit-gitflow
                                     evil-mc
                                     ;; org-plus-contrib
                                     skewer-mode
                                     vi-tilde-fringe
-                                    emmet-mode
                                     smooth-scrolling
                                     chinese-wbim
                                     chinese-pyim

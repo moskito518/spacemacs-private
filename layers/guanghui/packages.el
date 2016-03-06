@@ -14,7 +14,6 @@
       '(
         projectile
         org
-        prodigy
         org-tree-slide
         js2-mode
         find-file-in-project
@@ -46,7 +45,6 @@
         ace-window
         avy
         4clojure
-        persp-mode
         (gulpjs :location (recipe :fetcher github :repo "zilongshanren/emacs-gulpjs"))
         osx-dictionary
         litable
@@ -458,15 +456,6 @@
       (define-key endless/mc-map "\C-e" #'mc/edit-ends-of-lines)
       )))
 
-(defun guanghui/post-init-persp-mode ()
-  (when (fboundp 'spacemacs|define-custom-layout)
-    (spacemacs|define-custom-layout "@Cocos2D-X"
-      :binding "c"
-      :body
-      (find-file "~/cocos2d-x/cocos/ui/UIWidget.cpp")
-      (split-window-right)
-      (find-file "~/cocos2d-x/cocos/cocos2d.cpp"))))
-
 (defun guanghui/post-init-chinese-wbim ()
   (progn
     ;; [[http://emacs.stackexchange.com/questions/352/how-to-override-major-mode-bindings][keymap - How to override major mode bindings - Emacs Stack Exchange]]
@@ -707,68 +696,6 @@
         "owf" 'plain-org-wiki)
       (setq org-mobile-directory "~/org-notes/org")
       )))
-
-(defun guanghui/post-init-prodigy ()
-  (progn
-    (prodigy-define-tag
-      :name 'jekyll
-      :env '(("LANG" "en_US.UTF-8")
-             ("LC_ALL" "en_US.UTF-8")))
-    ;; define service
-    (prodigy-define-service
-      :name "Preview cocos2d-x web"
-      :command "python"
-      :args '("-m" "SimpleHTTPServer" "6001")
-      :cwd "~/cocos2d-x/web"
-      :tags '(work)
-      :kill-signal 'sigkill
-      :kill-process-buffer-on-stop t)
-
-    (prodigy-define-service
-      :name "Preview cocos2d-html5"
-      :command "python"
-      :args '("-m" "SimpleHTTPServer" "6004")
-      :cwd "~/Github/fireball/engine"
-      :tags '(work)
-      :kill-signal 'sigkill
-      :kill-process-buffer-on-stop t)
-
-    (prodigy-define-service
-      :name "Hexo Server"
-      :command "hexo"
-      :args '("server")
-      :cwd "~/4gamers.cn"
-      :tags '(hexo server)
-      :kill-signal 'sigkill
-      :kill-process-buffer-on-stop t)
-
-    (prodigy-define-service
-      :name "Hexo Deploy"
-      :command "hexo"
-      :args '("deploy" "--generate")
-      :cwd "~/4gamers.cn"
-      :tags '(hexo deploy)
-      :kill-signal 'sigkill
-      :kill-process-buffer-on-stop t)
-
-    (prodigy-define-service
-      :name "Debug Fireball"
-      :command "npm"
-      :args '("start" "--" "--nologin" "/Users/guanghui/Github/example-cases")
-      :cwd "~/Github/fireball/"
-      :tags '(work)
-      :kill-signal 'sigkill
-      :kill-process-buffer-on-stop t)
-
-    (prodigy-define-service
-      :name "Org wiki preview"
-      :command "python"
-      :args '("-m" "SimpleHTTPServer" "8088")
-      :cwd "~/org-notes/public_html"
-      :tags '(org-mode)
-      :init (lambda () (browse-url "http://localhost:8088"))
-      :kill-signal 'sigkill
-      :kill-process-buffer-on-stop t)))
 
 (defun guanghui/init-moz-controller ()
   (use-package moz-controller

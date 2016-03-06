@@ -109,8 +109,8 @@
             (newline-mark 10 [182 10])           ; 10 LINE FEED
             (tab-mark 9 [187 9] [9655 9] [92 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
             ))
-    (setq whitespace-style '(face tabs trailing tab-mark ))
-    ;; (setq whitespace-style '(face lines-tail))
+    ;; (setq whitespace-style '(face tabs trailing tab-mark ))
+    (setq whitespace-style '(face lines-tail))
     ;; show tab;  use untabify to convert tab to whitespace
     ;; (setq spacemacs-show-trailing-whitespace nil)
 
