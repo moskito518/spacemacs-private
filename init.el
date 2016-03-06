@@ -28,19 +28,18 @@ values."
      ;; ----------------------------------------------------------------
      spacemacs-helm
      spacemacs-ivy
+     auto-completion
      better-defaults
      github
      (version-control :variables version-control-diff-tool 'git-gutter+
                       version-control-global-margin t)
-     osx
      semantic                           ; too slow
      markdown
      (vinegar :variables vinegar-reuse-dired-buffer t)
      org
      prodigy
      search-engine
-     (syntax-checking :variables syntax-checking-enable-by-default nil)
-     (spell-checking :variables spell-checking-enable-by-default nil)
+     syntax-checking
      yaml
      ;; (ruby :variables ruby-version-manager 'rvm)
      python
@@ -76,14 +75,10 @@ values."
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode)
-     (auto-completion :variables auto-completion-enable-sort-by-usage t)
      (shell :variables
             shell-default-position 'full
             shell-default-shell 'ansi-term
             shell-default-term-shell "/bin/zsh")
-     (chinese :variables chinese-default-input-method 'wubi
-              chinese-enable-fcitx t
-              chinese-enable-youdao-dict t)
      zilongshanren
      guanghui)
    ;; List of additional packages that will be installed without being
@@ -102,7 +97,6 @@ values."
                                     smooth-scrolling
                                     chinese-wbim
                                     chinese-pyim
-                                    yasnippet
                                     srefactor
                                     org-download
                                     org-timer
@@ -295,7 +289,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers 't
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
@@ -336,19 +330,14 @@ in `dotspacemacs/user-config'."
   (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
   ;; ss proxy. But it will cause anacond-mode failed.
-  (setq socks-server '("Default server" "127.0.0.1" 1080 5))
-  (setq evil-shift-round nil)
+  ;; (setq socks-server '("Default server" "127.0.0.1" 1080 5))
+  ;; (setq evil-shift-round nil)
   )
 
 (defun dotspacemacs/user-config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
-
-  ;;解决org表格里面中英文对齐的问题
-  (when (configuration-layer/layer-usedp 'chinese)
-    (when (spacemacs/system-is-mac)
-      (spacemacs//set-monospaced-font "Source Code Pro" "Hiragino Sans GB" 14 16)))
 
   ;; (global-company-mode t)
   (setq-default powerline-default-separator 'arrow)
@@ -420,7 +409,6 @@ layers configuration."
   ;; For ruby
   (add-hook 'ruby-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   ;; For Javascript
-  (add-hook 'js2-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
   (spacemacs/set-leader-keys "rh" 'helm-resume)
   (spacemacs/set-leader-keys "ri" 'ivy-resume)
   (spacemacs|add-company-hook 'text-mode)
