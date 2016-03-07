@@ -506,41 +506,41 @@
   (setq evil-escape-delay 0.2))
 
 (defun guanghui/post-init-org-bullets ()
-  (setq org-bullets-bullet-list '("🐉" "🐠" "🐬" "🐤")))
+  (setq org-bullets-bullet-list '("◉" "○" "✸" "✿")))
 
-(defun guanghui/post-init-find-file-in-project ()
-  (progn
-    (defun zilongshanren/search-in-fireball ()
-      (interactive)
-      (helm-do-ag (expand-file-name "~/Github/fireball/")))
-    (spacemacs/set-leader-keys "os" 'zilongshanren/search-in-fireball)
+  (defun guanghui/post-init-find-file-in-project ()
+    (progn
+      (defun zilongshanren/search-in-fireball ()
+        (interactive)
+        (helm-do-ag (expand-file-name "~/Github/fireball/")))
+      (spacemacs/set-leader-keys "os" 'zilongshanren/search-in-fireball)
 
-    ;; If you use other VCS (subversion, for example), enable the following option
-    ;;(setq ffip-project-file ".svn")
-    ;; in MacOS X, the search file command is CMD+p
-    (bind-key* "s-p" 'find-file-in-project)
-    ;; for this project, I'm only interested certain types of files
-    ;; (setq-default ffip-patterns '("*.html" "*.js" "*.css" "*.java" "*.xml" "*.js"))
-    ;; if the full path of current file is under SUBPROJECT1 or SUBPROJECT2
-    ;; OR if I'm reading my personal issue track document,
-    (defadvice find-file-in-project (before my-find-file-in-project activate compile)
-      (when (ffip-current-full-filename-match-pattern-p "\\(/fireball\\)")
-        ;; set the root directory into "~/projs/PROJECT_DIR"
-        (setq-local ffip-project-root "~/Github/fireball")
-        ;; well, I'm not interested in concatenated BIG js file or file in dist/
-        (setq-local ffip-find-options "-not -size +64k -not -iwholename '*/bin/*'")
-        ;; do NOT search files in below directories, the default value is better.
-        ;; (setq-default ffip-prune-patterns '(".git" ".hg" "*.svn" "node_modules" "bower_components" "obj"))
-        )
-      (when (ffip-current-full-filename-match-pattern-p "\\(/cocos2d-x\\)")
-        ;; set the root directory into "~/projs/PROJECT_DIR"
-        (setq-local ffip-project-root "~/cocos2d-x")
-        ;; well, I'm not interested in concatenated BIG js file or file in dist/
-        (setq-local ffip-find-options "-not -size +64k -not -iwholename '*/bin/*'")
-        ;; do NOT search files in below directories, the default value is better.
-        ;; (setq-default ffip-prune-patterns '(".git" ".hg" "*.svn" "node_modules" "bower_components" "obj"))
-        ))
-    (ad-activate 'find-file-in-project)))
+      ;; If you use other VCS (subversion, for example), enable the following option
+      ;;(setq ffip-project-file ".svn")
+      ;; in MacOS X, the search file command is CMD+p
+      (bind-key* "s-p" 'find-file-in-project)
+      ;; for this project, I'm only interested certain types of files
+      ;; (setq-default ffip-patterns '("*.html" "*.js" "*.css" "*.java" "*.xml" "*.js"))
+      ;; if the full path of current file is under SUBPROJECT1 or SUBPROJECT2
+      ;; OR if I'm reading my personal issue track document,
+      (defadvice find-file-in-project (before my-find-file-in-project activate compile)
+        (when (ffip-current-full-filename-match-pattern-p "\\(/fireball\\)")
+          ;; set the root directory into "~/projs/PROJECT_DIR"
+          (setq-local ffip-project-root "~/Github/fireball")
+          ;; well, I'm not interested in concatenated BIG js file or file in dist/
+          (setq-local ffip-find-options "-not -size +64k -not -iwholename '*/bin/*'")
+          ;; do NOT search files in below directories, the default value is better.
+          ;; (setq-default ffip-prune-patterns '(".git" ".hg" "*.svn" "node_modules" "bower_components" "obj"))
+          )
+        (when (ffip-current-full-filename-match-pattern-p "\\(/cocos2d-x\\)")
+          ;; set the root directory into "~/projs/PROJECT_DIR"
+          (setq-local ffip-project-root "~/cocos2d-x")
+          ;; well, I'm not interested in concatenated BIG js file or file in dist/
+          (setq-local ffip-find-options "-not -size +64k -not -iwholename '*/bin/*'")
+          ;; do NOT search files in below directories, the default value is better.
+          ;; (setq-default ffip-prune-patterns '(".git" ".hg" "*.svn" "node_modules" "bower_components" "obj"))
+          ))
+      (ad-activate 'find-file-in-project)))
 
 (defun guanghui/post-init-deft ()
   (progn

@@ -321,6 +321,12 @@ in `dotspacemacs/user-config'."
   )
 
 (defun dotspacemacs/user-config ()
+  (setq flycheck-checkers '(javascript-jshint))
+  (setq org-pomodoro-audio-player "mplayer")
+  (setq org-pomodoro-finished-sound-args "-volume 0.3")
+  (setq org-pomodoro-long-break-sound-args "-volume 0.3")
+  (setq org-pomodoro-short-break-sound-args "-volume 0.3")
+  (setq org-pomodoro-play-ticking-sounds t)
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
