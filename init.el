@@ -316,8 +316,8 @@ in `dotspacemacs/user-config'."
   (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
   ;; ss proxy. But it will cause anacond-mode failed.
-  ;; (setq socks-server '("Default server" "127.0.0.1" 1080 5))
-  ;; (setq evil-shift-round nil)
+  (setq socks-server '("Default server" "127.0.0.1" 1080 5))
+  (setq evil-shift-round nil)
   )
 
 (defun dotspacemacs/user-config ()
