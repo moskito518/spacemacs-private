@@ -547,7 +547,7 @@
     (setq deft-use-filter-string-for-filename t)
     (spacemacs/set-leader-keys-for-major-mode 'deft-mode "q" 'quit-window)
     (setq deft-extension "org")
-    (setq deft-directory "~/org-notes")))
+    (setq deft-directory "~/Dropbox/org-notes")))
 
 (defun guanghui/post-init-org-pomodoro ()
   (progn
@@ -593,8 +593,8 @@
   (with-eval-after-load 'org
     (progn
       ;; define the refile targets
-      (setq org-agenda-files (quote ("~/org-notes" )))
-      (setq org-default-notes-file "~/org-notes/gtd.org")
+      (setq org-agenda-files (quote ("~/Dropbox/org-notes" )))
+      (setq org-default-notes-file "~/Dropbox/org-notes/gtd.org")
 
       (with-eval-after-load 'org-agenda
         (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
@@ -605,23 +605,23 @@
       ;;http://www.howardism.org/Technical/Emacs/journaling-org.html
       ;;add multi-file journal
       (setq org-capture-templates
-            '(("t" "Todo" entry (file+headline "~/org-notes/gtd.org" "GTD")
+            '(("t" "Todo" entry (file+headline "~/Dropbox/org-notes/gtd.org" "GTD")
                "* TODO [#B] %?\n  %i\n"
                :empty-lines 1)
-              ("p" "Priority" entry (file+headline "~/org-notes/gtd.org" "Priority")
+              ("p" "Priority" entry (file+headline "~/Dropbox/org-notes/gtd.org" "Priority")
                "* TODO [#A] %?\n  %i\n %U"
                :empty-lines 1)
-              ("n" "Notes" entry (file+headline "~/org-notes/notes.org" "Quick notes")
+              ("n" "Notes" entry (file+headline "~/Dropbox/org-notes/notes.org" "Quick notes")
                "* TODO [#C] %?\n  %i\n %U"
                :empty-lines 1)
-              ("c" "Chrome" entry (file+headline "~/org-notes/notes.org" "Quick notes")
+              ("c" "Chrome" entry (file+headline "~/Dropbox/org-notes/notes.org" "Quick notes")
                "* TODO [#C] %?\n %(zilongshanren/retrieve-chrome-current-tab-url)\n %i\n %U"
                :empty-lines 1)
-              ("l" "Links" entry (file+headline "~/org-notes/notes.org" "Quick notes")
+              ("l" "Links" entry (file+headline "~/Dropbox/org-notes/notes.org" "Quick notes")
                "* TODO [#C] %?\n  %i\n %a \n %U"
                :empty-lines 1)
               ("j" "Journal Entry"
-               entry (file+datetree "~/org-notes/journal.org")
+               entry (file+datetree "~/Dropbox/org-notes/journal.org")
                "* %?"
                :empty-lines 1)))
 
@@ -694,7 +694,7 @@
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "owh" 'plain-org-wiki-helm
         "owf" 'plain-org-wiki)
-      (setq org-mobile-directory "~/org-notes/org")
+      (setq org-mobile-directory "~/Dropbox/org-notes/org")
       )))
 
 (defun guanghui/init-moz-controller ()
