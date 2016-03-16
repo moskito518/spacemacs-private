@@ -641,7 +641,7 @@
 
       (defun org-summary-todo (n-done n-not-done)
         "Switch entry to DONE when all subentries are done, to TODO otherwise."
-        (let (org-log-done org-log-states)  ; turn off logging
+        (let (org-log-done org-log-states) ; turn off logging
           (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
 
       (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
@@ -694,7 +694,9 @@
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
         "owh" 'plain-org-wiki-helm
         "owf" 'plain-org-wiki)
-      (setq org-mobile-directory "~/Dropbox/org-notes/org")
+      (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+      (setq org-directory "~/Dropbox/org-notes/")
+      (setq org-mobile-inbox-for-pull "~/Dropbox/org-notes/gtd.org")
       )))
 
 (defun guanghui/init-moz-controller ()

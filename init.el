@@ -96,13 +96,13 @@ values."
                                     ;; clj-refactor
                                     ;;remove from spacemacs distribution
                                     ;; neotree
-                                    leuven-theme
+                                    ;; leuven-theme
                                     gh-md
                                     evil-lisp-state
                                     spray
                                     doc-view
                                     lorem-ipsum
-                                    solarized-theme
+                                    ;; solarized-theme
                                     )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
@@ -157,14 +157,14 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
-                         spacemacs-dark
                          monokai
+                         solarized-dark
                          solarized-light
+                         spacemacs-dark
                          leuven
                          ;; sanityinc-tomorrow-day
                          ;; sanityinc-tomorrow-eighties
                          ;; spacemacs-light
-                         ;; solarized-dark
                          ;; zenburn
                          )
    ;; If non nil the cursor color matches the state color.
@@ -313,6 +313,7 @@ any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
   ;; https://github.com/syl20bnr/spacemacs/issues/2705
   ;; (setq tramp-mode nil)
+
   (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
   ;; ss proxy. But it will cause anacond-mode failed.
