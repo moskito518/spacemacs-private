@@ -112,7 +112,7 @@
     :defer t
     :init
     (progn
-      (setq org-reveal-root "http://127.0.0.1/spacemacs/reveal.js"))))
+      (setq org-reveal-root "http://127.0.0.1/spacemacs-private/reveal.js"))))
 
 (defun guanghui/init-org-mac-link ()
   (use-package org-mac-link
