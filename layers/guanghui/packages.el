@@ -1,4 +1,4 @@
-;;; packages.el --- guanghui Layer packages File for Spacemacs
+
 ;;
 ;; Copyright (c) 2012-2014 Sylvain Benner
 ;; Copyright (c) 2014-2015 Sylvain Author: Sylvain Benner <sylvain.benner@gmail.com>
@@ -112,7 +112,7 @@
     :defer t
     :init
     (progn
-      (setq org-reveal-root "file:///Users/guanghui/.emacs.d/reveal-js"))))
+      (setq org-reveal-root "http://127.0.0.1/spacemacs/reveal.js"))))
 
 (defun guanghui/init-org-mac-link ()
   (use-package org-mac-link
@@ -547,7 +547,7 @@
     (setq deft-use-filter-string-for-filename t)
     (spacemacs/set-leader-keys-for-major-mode 'deft-mode "q" 'quit-window)
     (setq deft-extension "org")
-    (setq deft-directory "~/Dropbox/org-notes")))
+    (setq deft-directory "~/workspace/orgs")))
 
 (defun guanghui/post-init-org-pomodoro ()
   (progn
@@ -593,8 +593,8 @@
   (with-eval-after-load 'org
     (progn
       ;; define the refile targets
-      (setq org-agenda-files (quote ("~/Dropbox/org-notes" )))
-      (setq org-default-notes-file "~/Dropbox/org-notes/gtd.org")
+      (setq org-agenda-files (quote ("~/workspace/orgs" )))
+      (setq org-default-notes-file "~/workspace/orgs/gtd.org")
 
       (with-eval-after-load 'org-agenda
         (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
@@ -605,23 +605,23 @@
       ;;http://www.howardism.org/Technical/Emacs/journaling-org.html
       ;;add multi-file journal
       (setq org-capture-templates
-            '(("t" "Todo" entry (file+headline "~/Dropbox/org-notes/gtd.org" "GTD")
+            '(("t" "Todo" entry (file+headline "~/workspace/orgs/gtd.org" "GTD")
                "* TODO [#B] %?\n  %i\n"
                :empty-lines 1)
-              ("p" "Priority" entry (file+headline "~/Dropbox/org-notes/gtd.org" "Priority")
+              ("p" "Priority" entry (file+headline "~/workspace/orgs/gtd.org" "Priority")
                "* TODO [#A] %?\n  %i\n %U"
                :empty-lines 1)
-              ("n" "Notes" entry (file+headline "~/Dropbox/org-notes/notes.org" "Quick notes")
+              ("n" "Notes" entry (file+headline "~/workspace/orgs/notes.org" "Quick notes")
                "* TODO [#C] %?\n  %i\n %U"
                :empty-lines 1)
-              ("c" "Chrome" entry (file+headline "~/Dropbox/org-notes/notes.org" "Quick notes")
+              ("c" "Chrome" entry (file+headline "~/workspace/orgs/notes.org" "Quick notes")
                "* TODO [#C] %?\n %(zilongshanren/retrieve-chrome-current-tab-url)\n %i\n %U"
                :empty-lines 1)
-              ("l" "Links" entry (file+headline "~/Dropbox/org-notes/notes.org" "Quick notes")
+              ("l" "Links" entry (file+headline "~/workspace/orgs/notes.org" "Quick notes")
                "* TODO [#C] %?\n  %i\n %a \n %U"
                :empty-lines 1)
               ("j" "Journal Entry"
-               entry (file+datetree "~/Dropbox/org-notes/journal.org")
+               entry (file+datetree "~/workspace/orgs/journal.org")
                "* %?"
                :empty-lines 1)))
 
@@ -695,8 +695,8 @@
         "owh" 'plain-org-wiki-helm
         "owf" 'plain-org-wiki)
       (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
-      (setq org-directory "~/Dropbox/org-notes/")
-      (setq org-mobile-inbox-for-pull "~/Dropbox/org-notes/gtd.org")
+      (setq org-directory "~/workspace/orgs/")
+      (setq org-mobile-inbox-for-pull "~/workspace/orgs/gtd.org")
       )))
 
 (defun guanghui/init-moz-controller ()

@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: blog preview
+# key: blogpre
+# --
+#+TITLE: ?
+#+AUTHOR: Moskito Zhang
+#+EMAIL: moskito518@gmail.com
+#+DATE:
+#+STARTUP: showall
+#+STARTUP: inlineimages
+#+BEGIN_PREVIEW
+#+END_PREVIEW
