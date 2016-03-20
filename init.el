@@ -333,6 +333,12 @@ in `dotspacemacs/user-config'."
 
 
   (setq my-blog-header-file "~/workspace/orgs/notes/header.html")
+
+  (setq wm-base "~/workspace/orgs/wiki/")
+  (setq wm-htmlroot "~/workspace/orgs/www/wiki/")
+  (setq wm-base-directory wm-base)
+  (setq wm-publish-directory wm-htmlroot)
+
   (defun my-blog-header (arg)
     (with-temp-buffer
       (insert-file-contents my-blog-header-file)
@@ -463,7 +469,29 @@ License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4
         (write-file sitemap-newfile))))
 
   (setq org-publish-project-alist
-        `(("blog"
+        `(("wiki"
+           :base-directory ,wm-base-directory
+           :base-extension "org"
+           :exclude "fixme"
+           :makeindex t
+           :auto-sitemap t
+           :sitemap-ignore-case t
+           :html-extension "html"
+           :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/css/style.css\"/>\n<link rel=\"styleshhet\" text=\"text/css\" href=\"/assets/css/wiki.css\">"
+           :publishing-directory ,wm-publish-directory
+           ;; publishing-function (org-publish-org-to-html org-publish-org-to-org) ; ; ; ; ; ;
+           :publishing-function (org-html-publish-to-html org-org-publish-to-org)
+           :htmlized-source t           ; use google-prettify instead.
+           :section-numbers nil
+           :table-of-contents t
+           :html-head-include-default-style nil
+           :html-head-include-scripts nil
+           :html-viewport nil
+           :html-head-extra ,(with-temp-buffer (insert-file-contents (concat wm-base-directory "head-extra.html")) (buffer-string))
+           :recursive t
+           :html-preamble ,(with-temp-buffer (insert-file-contents (concat wm-base-directory "preamble.html")) (buffer-string))
+           :html-postamble ,(with-temp-buffer (insert-file-contents (concat wm-base-directory "postamble.html")) (buffer-string)))
+          ("blog"
            :components ("blog-articles", "blog-pages", "blog-rss", "blog-res", "blog-images", "blog-dl"))
           ("blog-articles"
            :base-directory "~/workspace/orgs/notes/articles/"
