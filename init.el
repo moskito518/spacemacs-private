@@ -492,11 +492,11 @@ License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4
            :html-preamble ,(with-temp-buffer (insert-file-contents (concat wm-base-directory "preamble.html")) (buffer-string))
            :html-postamble ,(with-temp-buffer (insert-file-contents (concat wm-base-directory "postamble.html")) (buffer-string)))
           ("blog"
-           :components ("blog-articles", "blog-pages", "blog-rss", "blog-res", "blog-images", "blog-dl"))
+           :components ("blog-articles", "blog-pages", "blog-rss", "blog-assets"))
           ("blog-articles"
-           :base-directory "~/workspace/orgs/notes/articles/"
+           :base-directory "~/workspace/orgs/notes/blog/"
            :base-extension "org"
-           :publishing-directory "~/workspace/orgs/www/articles/"
+           :publishing-directory "~/workspace/orgs/www/blog/"
            :publishing-function org-html-publish-to-html
            :preparation-function my-blog-articles-preprocessor
            :completion-function my-blog-articles-postprocessor
@@ -528,10 +528,10 @@ License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4
            :html-preamble my-blog-header
            :html-postamble ,my-blog-footer
 
-           sitemap - list of blog articles
+           ;; sitemap - list of blog articles
            :auto-sitemap t
            :sitemap-filename "blog.org"
-           :sitemap-title "Blog"
+           :sitemap-title "Moskito's Blog"
            ;; custom sitemap generator function
            :sitemap-function my-blog-sitemap
            :sitemap-sort-files anti-chronologically
@@ -573,7 +573,7 @@ License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4
            :html-preamble my-blog-header
            :html-postamble ,my-blog-footer)
           ("blog-rss"
-           :base-directory "~/workspace/orgs/notes/articles/"
+           :base-directory "~/workspace/orgs/notes/blog/"
            :base-extension "org"
            :publishing-directory "~/workspace/orgs/www/"
            :publishing-function org-rss-publish-to-rss
@@ -581,30 +581,18 @@ License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4
            :html-link-home "http://192.241.227.102"
            :html-link-use-abs-url t
 
-           :title "Moskito's Blog"
+           :title "Moskito's Site"
            :rss-image-url "http://192.241.227.102/img/feed-icon-28x28.png"
            :section-numbers nil
            :exclude ".*"
            :include ("blog.org")
            :table-of-contents nil)
-          ("blog-res"
+          ("blog-assets"
            :base-directory "~/workspace/orgs/notes/assets/"
            :base-extension ".*"
            :publishing-directory "~/workspace/orgs/www/assets/"
            :recursive t
            :publishing-function org-publish-attachment)
-          ("blog-images"
-           :base-directory "~/workspace/orgs/notes/img/"
-           :base-extension ".*"
-           :publishing-directory "~/workspace/orgs/www/img/"
-           :publishing-function org-publish-attachment
-           :recursive t)
-          ("blog-dl"
-           :base-directory "~/workspace/orgs/notes/dl/"
-           :base-extension ".*"
-           :publishing-directory "~/workspace/orgs/www/dl/"
-           :publishing-function org-publish-attachment
-           :Recursive t)
           ))
 
   ;; (add-to-list 'org-structure-template-alist
