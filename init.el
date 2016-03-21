@@ -28,7 +28,7 @@ values."
      ;; ----------------------------------------------------------------
      spacemacs-helm
      spacemacs-ivy
-     auto-completion
+     (auto-completion :disabled-for org)
      better-defaults
      (version-control :variables version-control-diff-tool 'git-gutter+
                       version-control-global-margin t)
@@ -65,6 +65,8 @@ values."
             shell-default-shell 'ansi-term
             shell-default-term-shell "/bin/zsh")
      zilongshanren
+     (chinese :variables
+              chinese-enable-youda-dict t)
      guanghui)
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -82,7 +84,6 @@ values."
                                     vi-tilde-fringe
                                     smooth-scrolling
                                     chinese-wbim
-                                    chinese-pyim
                                     srefactor
                                     org-download
                                     org-timer
@@ -616,6 +617,8 @@ License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4
   )
 
 (defun dotspacemacs/user-config ()
+  (setq pyim-use-tooltip 'pos-tip)
+  ;; (setq x-gtk-use-system-tooltips t)
   (setq flycheck-checkers '(javascript-jshint))
   "Configuration function.
 This function is called at the very end of Spacemacs initialization after
