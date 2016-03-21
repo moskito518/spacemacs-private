@@ -618,6 +618,7 @@ License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4
 
 (defun dotspacemacs/user-config ()
   (setq pyim-use-tooltip 'pos-tip)
+  (spacemacs//set-monospaced-font   "Source Code Pro" "Hiragino Sans GB" 14 14)
   ;; (setq x-gtk-use-system-tooltips t)
   (setq flycheck-checkers '(javascript-jshint))
   "Configuration function.
