@@ -619,7 +619,7 @@ License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4
 (defun dotspacemacs/user-config ()
   (setq pyim-use-tooltip 'pos-tip)
   (spacemacs//set-monospaced-font   "Source Code Pro" "Hiragino Sans GB" 14 14)
-  ;; (setq x-gtk-use-system-tooltips t)
+  (setq x-gtk-use-system-tooltips t)
   (setq flycheck-checkers '(javascript-jshint))
   "Configuration function.
 This function is called at the very end of Spacemacs initialization after
@@ -634,15 +634,15 @@ layers configuration."
     (while bindings
       (define-key keymap (pop bindings) (pop bindings))))
   (bb/define-key evil-normal-state-map
-    "+" 'spacemacs/evil-numbers-increase
-    "_" 'spacemacs/evil-numbers-decrease
-    "\\" 'evil-repeat-find-char-reverse
-    "[s" (lambda (n) (interactive "p") (dotimes (c n nil) (insert " ")))
-    "]s" (lambda (n) (interactive "p")
-           (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
+                 "+" 'spacemacs/evil-numbers-increase
+                 "_" 'spacemacs/evil-numbers-decrease
+                 "\\" 'evil-repeat-find-char-reverse
+                 "[s" (lambda (n) (interactive "p") (dotimes (c n nil) (insert " ")))
+                 "]s" (lambda (n) (interactive "p")
+                        (forward-char) (dotimes (c n nil) (insert " ")) (backward-char (1+ n))))
 
   (bb/define-key company-active-map
-    (kbd "C-w") 'evil-delete-backward-word)
+                 (kbd "C-w") 'evil-delete-backward-word)
 
   (with-eval-after-load 'helm
     (define-key helm-map (kbd "C-w") 'evil-delete-backward-word))
