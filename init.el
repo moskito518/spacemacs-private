@@ -621,6 +621,8 @@ License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4
   (spacemacs//set-monospaced-font   "Source Code Pro" "Hiragino Sans GB" 14 16)
   (setq x-gtk-use-system-tooltips t)
   (setq flycheck-checkers '(javascript-jshint))
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil)
   "Configuration function.
 This function is called at the very end of Spacemacs initialization after
 layers configuration."
