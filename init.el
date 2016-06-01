@@ -39,9 +39,12 @@ values."
      python
      lua
      html
+     php
      javascript
      ;; restclient
      emacs-lisp
+     osx
+     gtags
      ;; dash
      ;; emoji
      ;; ycmd
