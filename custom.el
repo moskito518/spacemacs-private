@@ -50,8 +50,7 @@
  '(paradox-github-token t)
  '(pyim-dicts
    (quote
-    ((:name "BigDict-01" :file "/Users/guanghui/.emacs.d/pyim/dicts/pyim-bigdict.pyim" :coding utf-8-unix)
-     (:name "BigDict-01" :file "/Users/guanghui/.emacs.d/.cache/pyim-bigdict.pyim" :coding utf-8-unix))))
+    ((:name "BigDict-01" :file "/Users/Moskito/.emacs.d/.cache/pyim-bigdict.pyim" :coding utf-8-unix :dict-type pinyin-dict))))
  '(ring-bell-function (quote ignore) t)
  '(safe-local-variable-values
    (quote

@@ -80,7 +80,7 @@ values."
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     magit-gh-pulls
-                                    magit-gitflow
+                                    ;; magit-gitflow
                                     evil-mc
                                     ;; org-plus-contrib
                                     skewer-mode
@@ -350,9 +350,9 @@ in `dotspacemacs/user-config'."
 
   (setq my-blog-footer
         "<hr />\n
-<p><span style=\"float: left;\"><a href= \"/blog.xml\">RSS</a></span>
-License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a></p>\n
-<p><a href= \"/contact.html\"> Contact</a></p>\n")
+  <p><span style=\"float: left;\"><a href= \"/blog.xml\">RSS</a></span>
+  License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a></p>\n
+  <p><a href= \"/contact.html\"> Contact</a></p>\n")
 
   (defun my-blog-org-export-format-drawer (name content)
     (concat "<div class=\"drawer " (downcase name) "\">\n"
@@ -456,8 +456,8 @@ License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4
   (defun my-blog-articles-postprocessor ()
     "Massage the sitemap file and move it up one directory.
 
-  for this to work, we have already fixed the creation of the
-  relative link in the sitemap-publish function"
+    for this to work, we have already fixed the creation of the
+    relative link in the sitemap-publish function"
     (let* ((sitemap-fn (concat (file-name-sans-extension (plist-get project-plist :sitemap-filename)) ".html"))
            (sitemap-olddir (plist-get project-plist :publishing-directory))
            (sitemap-newdir (expand-file-name (concat (file-name-as-directory sitemap-olddir) "..")))
@@ -485,7 +485,7 @@ License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4
            :publishing-directory ,wm-publish-directory
            ;; publishing-function (org-publish-org-to-html org-publish-org-to-org) ; ; ; ; ; ;
            :publishing-function (org-html-publish-to-html org-org-publish-to-org)
-           :htmlized-source t           ; use google-prettify instead.
+           :htmlized-source t         ; use google-prettify instead.
            :section-numbers nil
            :table-of-contents t
            :html-head-include-default-style nil
@@ -616,14 +616,13 @@ License: <a href= \"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4
     (org-remove-from-invisibility-spec '(org-link))
     (org-restart-font-lock))
 
-  (add-hook 'org-mode-hook 'turn-on-literal-links)
-  )
+  (add-hook 'org-mode-hook 'turn-on-literal-links))
 
 (defun dotspacemacs/user-config ()
   (setq pyim-use-tooltip 'pos-tip)
   (spacemacs//set-monospaced-font   "Source Code Pro" "Hiragino Sans GB" 14 16)
   (setq x-gtk-use-system-tooltips t)
-  (setq flycheck-checkers '(javascript-jshint))
+  (setq flycheck-checkers '(javascript-eslint))
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
   "Configuration function.
@@ -702,6 +701,7 @@ layers configuration."
   ;; For Javascript
   (spacemacs/set-leader-keys "rh" 'helm-resume)
   (spacemacs/set-leader-keys "ri" 'ivy-resume)
+
   (spacemacs|add-company-hook 'text-mode)
 
 
