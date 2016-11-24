@@ -18,7 +18,6 @@
         cmake-font-lock
         cmake-mode
         markdown-mode
-        impatient-mode
         swiper
         ;; counsel
         magit
@@ -28,13 +27,13 @@
         helm-ls-git
         keyfreq
         ;; worf
-        org-download
+        ;; org-download
         org
         nodejs-repl
         visual-regexp
         visual-regexp-steroids
         helm-gtags
-        persp-mode
+        ;; persp-mode
         json-mode
         racket-mode
         ;; yasnippet
@@ -50,8 +49,8 @@
         ctags-update
         evil-vimish-fold
         beacon
-        evil-visual-mark-mode
-        (occur-mode :location built-in)
+        ;; evil-visual-mark-mode
+        ;; (occur-mode :location built-in)
         (dired-mode :location built-in)
         ;; post extension names go here
         (doxymacs :location local)
